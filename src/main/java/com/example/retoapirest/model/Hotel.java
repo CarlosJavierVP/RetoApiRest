@@ -11,4 +11,5 @@ public class Hotel {
     private String id;
     private String nombre;
     private String direccion;
+    private int categoria;
 }
