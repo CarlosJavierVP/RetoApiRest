@@ -8,6 +8,4 @@ public interface HotelRepository extends MongoRepository<Hotel, String> {
 
     public List<Hotel> findAllByCategoria(int estrellas);
 
-
-
 }
