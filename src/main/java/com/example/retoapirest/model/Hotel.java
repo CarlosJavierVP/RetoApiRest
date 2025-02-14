@@ -1,4 +1,4 @@
-package com.example.retoapirest.modelo;
+package com.example.retoapirest.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
