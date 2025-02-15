@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface RestauranteRepository extends MongoRepository<Restaurante, String> {
 
-    @Query("{'ciudad': ?0}")
     public List<Restaurante> findAllByCiudad(String ciudad);
+    public List<Restaurante> findAllByTipoCocina(String cocina);
 }

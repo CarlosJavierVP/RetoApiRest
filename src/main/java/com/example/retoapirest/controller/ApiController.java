@@ -4,7 +4,7 @@ import com.example.retoapirest.model.Hotel;
 import com.example.retoapirest.model.Restaurante;
 import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
-import com.example.retoapirest.services.NormalizarCiudad;
+import com.example.retoapirest.services.NormalizarCadenas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,9 +67,18 @@ public class ApiController {
     @GetMapping("/restaurantes/ciudad/{ciudad}")
     public List<Restaurante> findByCiudad(@PathVariable String ciudad){
         logger.log(Level.INFO, "Ciudad: "+ciudad);
-        String ciudadNormalizada = NormalizarCiudad.normalizarCiudades(ciudad);
+        String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
         List<Restaurante> restaurantes = restauranteRepository.findAllByCiudad(ciudadNormalizada);
         logger.log(Level.INFO, "Restaurantes encontrados: "+restaurantes.size());
+        return restaurantes;
+    }
+
+    @GetMapping("/restaurantes/cocina/{cocina}")
+    public List<Restaurante> findByCocina(@PathVariable String cocina){
+        logger.log(Level.INFO,"Cocina: "+cocina);
+        String cocinaNormalizada = NormalizarCadenas.normalizarMayus(cocina);
+        List<Restaurante> restaurantes = restauranteRepository.findAllByTipoCocina(cocinaNormalizada);
+        logger.log(Level.INFO, "Nº de restaurantes con tipo de cocina "+cocinaNormalizada+": "+restaurantes.size());
         return restaurantes;
     }
 
