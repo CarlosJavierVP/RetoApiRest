@@ -4,15 +4,20 @@ import com.example.retoapirest.model.Hotel;
 import com.example.retoapirest.model.Restaurante;
 import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
+import com.example.retoapirest.services.NormalizarCiudad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api")
 public class ApiController {
+
+    static final Logger logger = Logger.getLogger(ApiController.class.getName());
 
     @Autowired
     HotelRepository hotelRepository;
@@ -59,11 +64,13 @@ public class ApiController {
         return entidad;
     }
 
+    @GetMapping("/restaurantes/ciudad/{ciudad}")
     public List<Restaurante> findByCiudad(@PathVariable String ciudad){
-
-
-
-        return restauranteRepository.findAllByCiudad(ciudad);
+        logger.log(Level.INFO, "Ciudad: "+ciudad);
+        String ciudadNormalizada = NormalizarCiudad.normalizarCiudades(ciudad);
+        List<Restaurante> restaurantes = restauranteRepository.findAllByCiudad(ciudadNormalizada);
+        logger.log(Level.INFO, "Restaurantes encontrados: "+restaurantes.size());
+        return restaurantes;
     }
 
 
