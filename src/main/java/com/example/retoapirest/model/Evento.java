@@ -12,7 +12,7 @@ public class Evento {
     @Id
     private String id;
     private String nombre;
-    private String descripción;
+    private String descripcion;
     private String ubicacion;
     private String ciudad;
     private String tipo;

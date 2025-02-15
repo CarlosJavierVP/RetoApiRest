@@ -93,4 +93,42 @@ public class ApiController {
         return eventoRepository.findAll();
     }
 
+    @GetMapping("/eventos/{id}")
+    public ResponseEntity<Evento> findEventById(@PathVariable String id){
+        ResponseEntity<Evento> entidad;
+        if(eventoRepository.existsById(id)){
+            var evento = eventoRepository.findById(id).get();
+            entidad = new ResponseEntity<>(evento, HttpStatus.OK);
+        }else {
+            entidad = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return entidad;
+    }
+
+    @GetMapping("/eventos/tipo/{tipo}")
+    public List<Evento> findEventByTipo(@PathVariable String tipo){
+        logger.log(Level.INFO, "Tipo de evento: "+tipo);
+        List<Evento> eventos = eventoRepository.findAllByTipo(tipo);
+        logger.log(Level.INFO, "Nº de eventos de tipo "+tipo+": "+eventos.size());
+        return eventos;
+    }
+
+    @GetMapping("/eventos/ciudad/{ciudad}")
+    public List<Evento> findEventByCiudad(@PathVariable String ciudad){
+        logger.log(Level.INFO, "Ciudad: "+ciudad);
+        String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
+        List<Evento> eventos = eventoRepository.findAllByCiudad(ciudadNormalizada);
+        logger.log(Level.INFO, "Eventos encontrados: "+eventos.size());
+        return eventos;
+    }
+
+    @GetMapping("/eventos/ciudad/{ciudad}/tipo/{tipo}")
+    public List<Evento> findEventByTipoAndCiudad(@PathVariable String ciudad, @PathVariable String tipo){
+        String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
+        logger.log(Level.INFO, "Ciudad: "+ciudadNormalizada);
+        List<Evento> eventos = eventoRepository.findAllByCiudadAndTipo(ciudadNormalizada, tipo);
+        logger.log(Level.INFO, "Nº de eventos de tipo "+tipo+": "+eventos.size());
+        return eventos;
+    }
+
 }
