@@ -1,7 +1,9 @@
 package com.example.retoapirest.controller;
 
+import com.example.retoapirest.model.Evento;
 import com.example.retoapirest.model.Hotel;
 import com.example.retoapirest.model.Restaurante;
+import com.example.retoapirest.repository.EventoRepository;
 import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
 import com.example.retoapirest.services.NormalizarCadenas;
@@ -23,8 +25,10 @@ public class ApiController {
     HotelRepository hotelRepository;
     @Autowired
     RestauranteRepository restauranteRepository;
+    @Autowired
+    EventoRepository eventoRepository;
 
-
+    //---------------------------------------------------------------->API HOTELES
     @GetMapping("/hoteles")
     public List<Hotel> allHotel(){
         return hotelRepository.findAll();
@@ -47,6 +51,7 @@ public class ApiController {
         return hotelRepository.findAllByCategoria(categoria);
     }
 
+    //---------------------------------------------------------------->API RESTAURANTES
     @GetMapping("/restaurantes")
     public List<Restaurante> allRestaurant(){
         return restauranteRepository.findAll();
@@ -82,5 +87,10 @@ public class ApiController {
         return restaurantes;
     }
 
+    //---------------------------------------------------------------->API EVENTOS
+    @GetMapping("/eventos")
+    public List<Evento> allEvent(){
+        return eventoRepository.findAll();
+    }
 
 }
