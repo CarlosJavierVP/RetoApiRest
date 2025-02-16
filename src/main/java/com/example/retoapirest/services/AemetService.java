@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,11 +21,14 @@ public class AemetService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public String getTiempoCiudad(String ciudad){
-        String url = "https://opendata.aemet.es/opendata/api/preccion/especifica/municipio/diaria/"+ciudad+"?api_key="+aemetApiKey;
+    public String getTiempoCiudad(String codigoCiudad){
+        String url = "https://opendata.aemet.es/opendata/api/preccion/especifica/municipio/diaria/"+codigoCiudad+"?api_key="+aemetApiKey;
         String result = "";
         try{
+            // peticion GET
+            logger.log(Level.INFO, " URL api: "+url);
             result = restTemplate.getForObject(url, String.class);
+            logger.log(Level.INFO, "Resultado de la api: "+result);
 
         }catch (RestClientException e){
             logger.log(Level.SEVERE, "Error al obtener los datos de la AEMET", e);

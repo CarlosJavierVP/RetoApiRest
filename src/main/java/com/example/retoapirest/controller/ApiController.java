@@ -29,7 +29,7 @@ public class ApiController {
     @Autowired
     EventoRepository eventoRepository;
     @Autowired
-    private AemetService aemetService;
+    AemetService aemetService;
 
     //---------------------------------------------------------------->API HOTELES
     @GetMapping("/hoteles")

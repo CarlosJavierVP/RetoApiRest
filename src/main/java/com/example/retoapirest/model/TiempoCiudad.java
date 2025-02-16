@@ -8,7 +8,7 @@ public class TiempoCiudad {
     @JsonProperty("fecha")
     private String fecha;
     @JsonProperty("temperatura")
-    private double temperatura;
+    private Temperatura temperatura;
     @JsonProperty("descripcion")
     private String descripcion;
 
