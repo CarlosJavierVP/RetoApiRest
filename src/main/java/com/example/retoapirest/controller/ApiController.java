@@ -156,6 +156,22 @@ public class ApiController {
         return entidad;
     }
 
+    @GetMapping("/punto_interes/ciudad/{ciudad}")
+    public List<PuntoInteres> findPoiByCiudad(@PathVariable String ciudad){
+        String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
+        logger.log(Level.INFO, "Ciudad: "+ciudadNormalizada);
+        List<PuntoInteres> pois = puntoInteresRepository.findAllByCiudad(ciudadNormalizada);
+        logger.log(Level.INFO, "Nº de puntos de interés en "+ciudadNormalizada+": "+pois.size());
+        return pois;
+    }
+
+    @GetMapping("/punto_interes/tipo/{tipo}")
+    public List<PuntoInteres> findPoiByTipo(@PathVariable String tipo){
+        return puntoInteresRepository.findAllByTipo(tipo);
+    }
+
+
+
 
     //---------------------------------------------------------------->API TIEMPO
     @GetMapping("/ciudad/{ciudad}")
