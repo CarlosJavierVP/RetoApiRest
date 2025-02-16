@@ -2,9 +2,11 @@ package com.example.retoapirest.controller;
 
 import com.example.retoapirest.model.Evento;
 import com.example.retoapirest.model.Hotel;
+import com.example.retoapirest.model.PuntoInteres;
 import com.example.retoapirest.model.Restaurante;
 import com.example.retoapirest.repository.EventoRepository;
 import com.example.retoapirest.repository.HotelRepository;
+import com.example.retoapirest.repository.PuntoInteresRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
 import com.example.retoapirest.services.AemetService;
 import com.example.retoapirest.services.NormalizarCadenas;
@@ -28,6 +30,8 @@ public class ApiController {
     RestauranteRepository restauranteRepository;
     @Autowired
     EventoRepository eventoRepository;
+    @Autowired
+    PuntoInteresRepository puntoInteresRepository;
     @Autowired
     AemetService aemetService;
 
@@ -133,6 +137,25 @@ public class ApiController {
         logger.log(Level.INFO, "Nº de eventos de tipo "+tipo+": "+eventos.size());
         return eventos;
     }
+
+    //---------------------------------------------------------------->API PUNTO_DE_INTERES
+    @GetMapping("/punto_interes")
+    public List<PuntoInteres> allPois(){
+        return puntoInteresRepository.findAll();
+    }
+
+    @GetMapping("/punto_interes/{id}")
+    public ResponseEntity<PuntoInteres> findPoiById(@PathVariable String id){
+        ResponseEntity<PuntoInteres> entidad;
+        if (puntoInteresRepository.existsById(id)){
+            var poi = puntoInteresRepository.findById(id).get();
+            entidad = new ResponseEntity<>(poi, HttpStatus.OK);
+        }else {
+            entidad = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return entidad;
+    }
+
 
     //---------------------------------------------------------------->API TIEMPO
     @GetMapping("/ciudad/{ciudad}")
