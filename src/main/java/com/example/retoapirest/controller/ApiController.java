@@ -6,6 +6,7 @@ import com.example.retoapirest.model.Restaurante;
 import com.example.retoapirest.repository.EventoRepository;
 import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
+import com.example.retoapirest.services.AemetService;
 import com.example.retoapirest.services.NormalizarCadenas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,8 @@ public class ApiController {
     RestauranteRepository restauranteRepository;
     @Autowired
     EventoRepository eventoRepository;
+    @Autowired
+    private AemetService aemetService;
 
     //---------------------------------------------------------------->API HOTELES
     @GetMapping("/hoteles")
@@ -129,6 +132,12 @@ public class ApiController {
         List<Evento> eventos = eventoRepository.findAllByCiudadAndTipo(ciudadNormalizada, tipo);
         logger.log(Level.INFO, "Nº de eventos de tipo "+tipo+": "+eventos.size());
         return eventos;
+    }
+
+    //---------------------------------------------------------------->API TIEMPO
+    @GetMapping("/ciudad/{ciudad}")
+    public String getTiempo (@PathVariable String ciudad){
+        return aemetService.getTiempoCiudad(ciudad);
     }
 
 }
