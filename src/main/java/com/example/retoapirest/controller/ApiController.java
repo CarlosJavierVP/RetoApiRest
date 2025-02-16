@@ -170,6 +170,24 @@ public class ApiController {
         return puntoInteresRepository.findAllByTipo(tipo);
     }
 
+    @GetMapping("/punto_interes/categoria/{categoria}")
+    public List<PuntoInteres> findPoiByCategoria(@PathVariable String categoria){
+        return puntoInteresRepository.findAllByCategorias(categoria);
+    }
+
+    @GetMapping("punto_interes/ciudad/{ciudad}/tipo/{tipo}")
+    public List<PuntoInteres> findPoiByCiudadAndTipo(@PathVariable String ciudad, @PathVariable String tipo){
+        String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
+
+        return puntoInteresRepository.findAllByCiudadAndTipo(ciudadNormalizada,tipo);
+    }
+
+    @GetMapping("/punto_interes/ciudad/{ciudad}/categoria/{categoria}")
+    public List<PuntoInteres> findPoiByCiudadAndCategoria(@PathVariable String ciudad, @PathVariable String categoria){
+        String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
+
+        return puntoInteresRepository.findAllByCiudadAndCategorias(ciudadNormalizada, categoria);
+    }
 
 
 
