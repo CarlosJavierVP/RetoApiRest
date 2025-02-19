@@ -79,6 +79,11 @@ public class ApiController {
         return new ResponseEntity<>(hotel, HttpStatus.CREATED);
     }
 
+    @PatchMapping("/hoteles/delete/{id}")
+    public void delete(@PathVariable String id){
+        hotelRepository.deleteById(id);
+    }
+
 
     //---------------------------------------------------------------->API RESTAURANTES
     @GetMapping("/restaurantes")
