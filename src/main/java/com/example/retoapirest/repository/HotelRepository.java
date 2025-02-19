@@ -7,5 +7,6 @@ import java.util.List;
 public interface HotelRepository extends MongoRepository<Hotel, String> {
 
     public List<Hotel> findAllByCategoria(int estrellas);
+    public List<Hotel> findAllByPrecioNoche(double precio);
 
 }

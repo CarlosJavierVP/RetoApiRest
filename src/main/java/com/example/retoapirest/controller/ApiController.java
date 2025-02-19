@@ -58,6 +58,11 @@ public class ApiController {
         return hotelRepository.findAllByCategoria(categoria);
     }
 
+    @GetMapping("/hoteles/precio/{precio}")
+    public List<Hotel> findHotelByPrecio(@PathVariable double precio){
+        return hotelRepository.findAllByPrecioNoche(precio);
+    }
+
     //---------------------------------------------------------------->API RESTAURANTES
     @GetMapping("/restaurantes")
     public List<Restaurante> allRestaurant(){
