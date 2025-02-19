@@ -65,6 +65,7 @@ public class ApiController {
 
     @PostMapping("/hoteles/")
     public ResponseEntity<Hotel> create(@RequestBody Hotel hotel){
+        /*
         ResponseEntity<Hotel> entidad;
         if(hotelRepository.existsById(hotel.getId())){
             entidad = new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -72,7 +73,10 @@ public class ApiController {
             hotelRepository.save(hotel);
             entidad = new ResponseEntity<>(HttpStatus.CREATED);
         }
-        return entidad;
+
+         */
+        hotelRepository.save(hotel);
+        return new ResponseEntity<>(hotel, HttpStatus.CREATED);
     }
 
 
