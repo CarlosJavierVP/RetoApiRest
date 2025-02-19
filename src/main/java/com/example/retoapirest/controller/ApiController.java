@@ -63,6 +63,19 @@ public class ApiController {
         return hotelRepository.findAllByPrecioNoche(precio);
     }
 
+    @PostMapping("/hoteles/")
+    public ResponseEntity<Hotel> create(@RequestBody Hotel hotel){
+        ResponseEntity<Hotel> entidad;
+        if(hotelRepository.existsById(hotel.getId())){
+            entidad = new ResponseEntity<>(HttpStatus.CONFLICT);
+        }else {
+            hotelRepository.save(hotel);
+            entidad = new ResponseEntity<>(HttpStatus.CREATED);
+        }
+        return entidad;
+    }
+
+
     //---------------------------------------------------------------->API RESTAURANTES
     @GetMapping("/restaurantes")
     public List<Restaurante> allRestaurant(){
