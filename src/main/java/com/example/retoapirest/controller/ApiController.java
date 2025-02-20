@@ -238,12 +238,13 @@ public class ApiController {
     }
 
     @GetMapping("punto_interes/localizacion")
-    public ResponseEntity<PuntoInteres> findPoiByLocalizacion(@RequestParam double latitud, @RequestParam double longitud){
+    public List<PuntoInteres> findPoiByLocalizacion(@RequestParam double latitud, @RequestParam double longitud){
 
         logger.log(Level.INFO,"Puntos de interés en latitud: "+latitud+" y longitud: "+longitud);
         ResponseEntity<PuntoInteres> entidad;
-        var p = poiService.obtenerPoiLocalizacion(latitud,longitud);
+        var p = poiService.obtenerListaPoiLocalizacion(latitud,longitud);
 
+        /*
         if (p == null){
             logger.log(Level.WARNING, "No hay puntos de interés en la localización");
             entidad = new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -251,7 +252,9 @@ public class ApiController {
             logger.log(Level.INFO, "pois: "+p);
             entidad = new ResponseEntity<>(p, HttpStatus.OK);
         }
-        return entidad;
+
+         */
+        return p;
     }
 
 

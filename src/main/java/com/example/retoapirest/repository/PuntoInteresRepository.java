@@ -15,7 +15,7 @@ public interface PuntoInteresRepository extends MongoRepository<PuntoInteres, St
     public List<PuntoInteres> findAllByCategorias(String categoria);
     public List<PuntoInteres> findAllByCiudadAndTipo(String ciudad, String tipo);
     public List<PuntoInteres> findAllByCiudadAndCategorias(String ciudad, String categoria);
-    @Query("{ 'localizacion': { $near: { $geometry: { type: 'Point', coordinates: [?0, ?1] }, $distMax: ?2 } } }")
+    //@Query("{ 'localizacion': { $near: { $geometry: { type: 'Point', coordinates: [?0, ?1] }, $distMax: ?2 } } }")
     public List<PuntoInteres> findAllByLocalizacion(Point punto, Distance distMax);
     public PuntoInteres findByLocalizacion(Point punto, Distance distMax);
 
