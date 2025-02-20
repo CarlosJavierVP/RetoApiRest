@@ -1,15 +1,13 @@
 package com.example.retoapirest.controller;
 
-import com.example.retoapirest.model.Evento;
-import com.example.retoapirest.model.Hotel;
-import com.example.retoapirest.model.PuntoInteres;
-import com.example.retoapirest.model.Restaurante;
+import com.example.retoapirest.model.*;
 import com.example.retoapirest.repository.EventoRepository;
 import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.PuntoInteresRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
 import com.example.retoapirest.services.AemetService;
 import com.example.retoapirest.services.NormalizarCadenas;
+import com.example.retoapirest.services.PoiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +32,8 @@ public class ApiController {
     PuntoInteresRepository puntoInteresRepository;
     @Autowired
     AemetService aemetService;
+    @Autowired
+    PoiService poiService;
 
     //---------------------------------------------------------------->API HOTELES
     @GetMapping("/hoteles")
@@ -64,7 +64,7 @@ public class ApiController {
     }
 
     @PostMapping("/hoteles/")
-    public ResponseEntity<Hotel> create(@RequestBody Hotel hotel){
+    public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel){
         /*
         ResponseEntity<Hotel> entidad;
         if(hotelRepository.existsById(hotel.getId())){
@@ -79,8 +79,8 @@ public class ApiController {
         return new ResponseEntity<>(hotel, HttpStatus.CREATED);
     }
 
-    @PatchMapping("/hoteles/delete/{id}")
-    public void delete(@PathVariable String id){
+    @DeleteMapping("/hoteles/delete/{id}")
+    public void deleteHotel(@PathVariable String id){
         hotelRepository.deleteById(id);
     }
 
@@ -119,6 +119,17 @@ public class ApiController {
         List<Restaurante> restaurantes = restauranteRepository.findAllByTipoCocina(cocinaNormalizada);
         logger.log(Level.INFO, "Nº de restaurantes con tipo de cocina "+cocinaNormalizada+": "+restaurantes.size());
         return restaurantes;
+    }
+
+    @PostMapping("/restaurantes/")
+    public ResponseEntity<Restaurante> createRestaurant(@RequestBody Restaurante rest){
+        restauranteRepository.save(rest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/restaurantes/delete/{id}")
+    public void deleteRestaurante(@PathVariable String id){
+        restauranteRepository.deleteById(id);
     }
 
     //---------------------------------------------------------------->API EVENTOS
@@ -214,6 +225,23 @@ public class ApiController {
         String ciudadNormalizada = NormalizarCadenas.normalizarMayus(ciudad);
 
         return puntoInteresRepository.findAllByCiudadAndCategorias(ciudadNormalizada, categoria);
+    }
+
+    @GetMapping("punto_interes/localizacion")
+    public ResponseEntity<PuntoInteres> findPoiByLocalizacion(@RequestParam double latitud, @RequestParam double longitud){
+
+        logger.log(Level.INFO,"Puntos de interés en latitud: "+latitud+" y longitud: "+longitud);
+        ResponseEntity<PuntoInteres> entidad;
+        var p = poiService.obtenerPoiLocalizacion(latitud,longitud);
+
+        if (p == null){
+            logger.log(Level.WARNING, "No hay puntos de interés en la localización");
+            entidad = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else{
+            logger.log(Level.INFO, "pois: "+p);
+            entidad = new ResponseEntity<>(p, HttpStatus.OK);
+        }
+        return entidad;
     }
 
 
