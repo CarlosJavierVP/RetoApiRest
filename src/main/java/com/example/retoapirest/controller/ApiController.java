@@ -123,6 +123,16 @@ public class ApiController {
 
     @PostMapping("/restaurantes/")
     public ResponseEntity<Restaurante> createRestaurant(@RequestBody Restaurante rest){
+        //ResponseEntity<Restaurante> entidad;
+        /*
+        if (restauranteRepository.existsById(rest.getId())){
+            entidad = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else {
+            restauranteRepository.save(rest);
+            entidad = new ResponseEntity<>(HttpStatus.CREATED);
+        }
+
+         */
         restauranteRepository.save(rest);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -247,9 +257,12 @@ public class ApiController {
 
 
     //---------------------------------------------------------------->API TIEMPO
+    /*
     @GetMapping("/ciudad/{ciudad}")
     public String getTiempo (@PathVariable String ciudad){
         return aemetService.getTiempoCiudad(ciudad);
     }
+
+     */
 
 }

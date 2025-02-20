@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 @Service
 public class AemetService {
-
+/*
     static final Logger logger = Logger.getLogger(AemetService.class.getName());
 
     @Value("${aemet.api.key}")
@@ -36,4 +36,6 @@ public class AemetService {
         }
         return result;
     }
+
+ */
 }
