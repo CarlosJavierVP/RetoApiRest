@@ -1,18 +1,17 @@
 package com.example.retoapirest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 @Data
+@JsonIgnoreProperties(ignoreUnknown = false)
 public class TiempoCiudad {
-    @Id @JsonProperty("id")
-    private String id;
-    @JsonProperty("fecha")
+    @JsonProperty("provincia")
+    private String ciudad;
+    @JsonProperty("elaborado")
     private String fecha;
     @JsonProperty("temperatura")
     private Temperatura temperatura;
-    @JsonProperty("descripcion")
-    private String descripcion;
 
 }
