@@ -257,38 +257,5 @@ public class ApiController {
 
 
 
-/*
-    @GetMapping("/ciudad/{ciudad}")
-    public ResponseEntity<List<DiaPrediccion>> getTiempo(@PathVariable String ciudad){
-        try{
-            List<DiaPrediccion> predicciones = aemetService.getTiempoCiudad(ciudad);
-            return ResponseEntity.ok(predicciones);
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-    }
-
- */
-
-    /*
-    @GetMapping("/ciudad/{ciudad}")
-    public String getTiempo (@PathVariable String ciudad){
-        return aemetService.getTiempoCiudad(ciudad);
-    }
-
-     */
-/*
-    @GetMapping("/ciudad/{ciudad}")
-    public ResponseEntity<TiempoCiudad> getTiempo (@PathVariable String ciudad){
-        TiempoCiudad tc = aemetService.getTiempoCiudad(ciudad);
-        return new ResponseEntity<>(tc, HttpStatus.OK);
-    }
-
- */
-
-
-
-
-
 
 }
