@@ -7,7 +7,6 @@ import com.example.retoapirest.repository.PuntoInteresRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
 import com.example.retoapirest.services.AemetService;
 import com.example.retoapirest.services.NormalizarCadenas;
-import com.example.retoapirest.services.PoiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +31,6 @@ public class ApiController {
     PuntoInteresRepository puntoInteresRepository;
     @Autowired
     AemetService aemetService;
-    @Autowired
-    PoiService poiService;
 
     //---------------------------------------------------------------->API HOTELES
     @GetMapping("/hoteles")
@@ -237,9 +234,10 @@ public class ApiController {
         return puntoInteresRepository.findAllByCiudadAndCategorias(ciudadNormalizada, categoria);
     }
 
-    @GetMapping("punto_interes/localizacion")
+    @GetMapping("punto_interes/localizacion") // endpoint ej: http://localhost:8080/api/punto_interes/localizacion?latitud=36.7213&longitud=-4.4155
     public ResponseEntity<List<PuntoInteres>> findPoiByLocalizacion(@RequestParam double latitud, @RequestParam double longitud, @RequestParam(defaultValue = "1000") double maxDist){
 
+        // Obtención de una lista de puntos de interés cercanos a las coordenadas marcadas en el endpoint
         List<PuntoInteres> listaPoi = puntoInteresRepository.findByLocalizacionNear(longitud, latitud, maxDist);
         if (listaPoi.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -251,12 +249,11 @@ public class ApiController {
 
 
     //---------------------------------------------------------------->API TIEMPO
-    /*
+
     @GetMapping("/ciudad/{ciudad}")
     public String getTiempo (@PathVariable String ciudad){
         return aemetService.getTiempoCiudad(ciudad);
     }
 
-     */
 
 }

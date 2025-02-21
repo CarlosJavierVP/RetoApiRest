@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 @Service
 public class AemetService {
-/*
+
     static final Logger logger = Logger.getLogger(AemetService.class.getName());
 
     @Value("${aemet.api.key}")
@@ -22,7 +22,7 @@ public class AemetService {
     private RestTemplate restTemplate;
 
     public String getTiempoCiudad(String codigoCiudad){
-        String url = "https://opendata.aemet.es/opendata/api/preccion/especifica/municipio/diaria/"+codigoCiudad+"?api_key="+aemetApiKey;
+        String url = "https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/"+codigoCiudad+"?api_key="+aemetApiKey;
         String result = "";
         try{
             // peticion GET
@@ -37,5 +37,5 @@ public class AemetService {
         return result;
     }
 
- */
+
 }
