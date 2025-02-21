@@ -6,7 +6,9 @@ import lombok.Data;
 @Data
 public class Temperatura {
     @JsonProperty("maxima")
-    private  int max;
+    private int max;
     @JsonProperty("minima")
-    private  int min;
+    private int min;
 }
+
+

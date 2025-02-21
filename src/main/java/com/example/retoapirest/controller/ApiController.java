@@ -7,6 +7,7 @@ import com.example.retoapirest.repository.PuntoInteresRepository;
 import com.example.retoapirest.repository.RestauranteRepository;
 import com.example.retoapirest.services.AemetService;
 import com.example.retoapirest.services.NormalizarCadenas;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -247,9 +248,16 @@ public class ApiController {
     }
 
 
-
     //---------------------------------------------------------------->API TIEMPO
 
+    @GetMapping("/ciudad/{ciudad}")
+    public JSONObject getTiempo(@PathVariable String ciudad){
+        return aemetService.getTiempoCiudad(ciudad);
+    }
+
+
+
+/*
     @GetMapping("/ciudad/{ciudad}")
     public ResponseEntity<List<DiaPrediccion>> getTiempo(@PathVariable String ciudad){
         try{
@@ -260,6 +268,7 @@ public class ApiController {
         }
     }
 
+ */
 
     /*
     @GetMapping("/ciudad/{ciudad}")
@@ -268,15 +277,16 @@ public class ApiController {
     }
 
      */
-
-    /*
+/*
     @GetMapping("/ciudad/{ciudad}")
     public ResponseEntity<TiempoCiudad> getTiempo (@PathVariable String ciudad){
         TiempoCiudad tc = aemetService.getTiempoCiudad(ciudad);
         return new ResponseEntity<>(tc, HttpStatus.OK);
     }
 
-     */
+ */
+
+
 
 
 

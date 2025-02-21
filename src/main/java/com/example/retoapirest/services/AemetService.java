@@ -1,9 +1,12 @@
 package com.example.retoapirest.services;
 
-import com.example.retoapirest.model.DiaPrediccion;
+import com.example.retoapirest.model.Dia;
 import com.example.retoapirest.model.TiempoCiudad;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -13,8 +16,6 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -30,11 +31,13 @@ public class AemetService {
 
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private ObjectMapper objectMapper;
 
-    public List<DiaPrediccion> getTiempoCiudad(String codigoCiudad){
+    public JSONObject getTiempoCiudad(String codigoCiudad){
         String url = "https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/"+codigoCiudad+"?api_key="+aemetApiKey;
         String result = "";
-        List<DiaPrediccion> predicciones = new ArrayList<>();
+        JSONObject outJson = new JSONObject();
         // AEMET devuelve un json con url temporal y hace una segunda petición a dicha url para obtener los datos reales
         try{
             // primera peticion GET
@@ -51,20 +54,32 @@ public class AemetService {
                 // segunda petición GET
                 result = restTemplate.getForObject(urlDatos, String.class);
 
-                // parsear el json a la
-                ObjectMapper objMap = new ObjectMapper();
-                JsonNode rootNodo = objMap.readTree(result);
-                JsonNode prediccionNodo = rootNodo.path("prediccion");
+                // parsear el json a una lista de objetos
+                List<TiempoCiudad> aemetDataList = objectMapper.readValue(result, objectMapper.getTypeFactory().constructCollectionType(List.class, TiempoCiudad.class));
 
-                if(prediccionNodo.isArray()){
-                    for(JsonNode diaNodo : prediccionNodo){
-                        DiaPrediccion dia = objMap.treeToValue(diaNodo, DiaPrediccion.class);
-                        predicciones.add(dia);
+                // filtrar y procesar los datos
+                JSONArray diasSalida = new JSONArray();
+
+                JSONObject diaOut = new JSONObject();
+                for(TiempoCiudad data: aemetDataList){
+                    for(Dia dia : data.getPrediccion().getDia()){
+                        diaOut.put("fecha", dia.getFecha());
+
+                        if (dia.getTemperatura() != null){
+                            diaOut.put("maximo", data.getPrediccion().getDia().get(0).getTemperatura().getMax());
+                            diaOut.put("minimo", data.getPrediccion().getDia().get(0).getTemperatura().getMin());
+                        }else {
+                            diaOut.put("maximo", "N/A");
+                            diaOut.put("minimo", "N/A");
+                        }
                     }
-                }else{
-                    logger.log(Level.SEVERE, "No se ha podido obtener la URL de datos de AEMET");
-                    throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "No se ha podido obtener la URL de datos de AEMET");
+
+                    diasSalida.put(diaOut);
                 }
+
+                // añadir los datos filtrados al objeto de salida
+                outJson.put("provincia", aemetDataList.get(0).getCiudad());
+                outJson.put("dias",diasSalida);
 
             }else{
                 logger.log(Level.SEVERE, "No se ha podido obtener la URL de datos de AEMET");
@@ -73,10 +88,12 @@ public class AemetService {
         }catch (RestClientException e){
             logger.log(Level.SEVERE, "Error al obtener los datos de la AEMET", e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error al obtener los datos meteorológicos de la AEMET");
-        } catch (IOException e) {
+        } catch (JsonMappingException e) {
+            throw new RuntimeException(e);
+        } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        return predicciones;
+        return outJson;
     }
 
 
