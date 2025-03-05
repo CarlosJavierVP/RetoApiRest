@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/web")
+@SessionAttributes("hotel")
 public class WebController {
 
     static final Logger logger = Logger.getLogger(WebController.class.getName());
@@ -43,14 +44,14 @@ public class WebController {
 
     @GetMapping("/hotel/add")
     public String formularioAddHotel(Model model){
-        model.addAttribute("hotel", new Object());
+        model.addAttribute("hotel", new Hotel());
         return "formularioHotel";
     }
 
     @PostMapping("/hotel/add")
     public String addHotel(@ModelAttribute Hotel hotel, Model model) {
         hotelRepository.save(hotel);
-        logger.log(Level.INFO, "Hotel añadido: "+hotel);
+        logger.log(Level.INFO, "Hotel añadido: "+hotel.getNombre());
         model.addAttribute("mensaje", "Hotel añadido correctamente");
         return "formularioHotel";
     }

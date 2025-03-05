@@ -7,6 +7,9 @@
 </head>
 <body>
 <h1>Añadir Nuevo Hotel</h1>
+
+<div th:if="${mensaje != null}" th:text="${mensaje}" style="color: green; margin-bottom: 20px;"></div>
+
 <form th:action="@{/hotel/add}" method="post">
     <div>
         <label for="nombre">Nombre:</label>
@@ -15,23 +18,23 @@
 
     <div>
         <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad" required>
+        <input type="text" id="ciudad" name="ciudad">
     </div>
 
     <div>
         <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required>
+        <input type="text" id="direccion" name="direccion">
     </div>
 
     <div>
         <label for="categoria">Categoría:</label>
-        <input type="number" id="categoria" name="categoria" min="1" max="5" required>
+        <input type="number" id="categoria" name="categoria" min="1" max="5">
         <small>(1 a 5 estrellas)</small>
     </div>
 
     <div>
         <label for="servicios">Servicios:</label>
-        <select id="servicios" name="servicios" multiple required>
+        <select id="servicios" name="servicios" multiple>
             <option value="wifi">Wifi</option>
             <option value="piscina">Piscina</option>
             <option value="gimnasio">Gimnasio</option>
@@ -44,7 +47,7 @@
 
     <div>
         <label for="precioNoche">Precio por noche:</label>
-        <input type="number" id="precioNoche" name="precioNoche" step="0.01" min="0" required>
+        <input type="number" id="precioNoche" name="precioNoche" step="0.01" min="0">
         <small>(En euros)</small>
     </div>
 
