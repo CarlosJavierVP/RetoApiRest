@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${titulo}"></title>
+    <link rel="stylesheet" href="/stylesPoi.css">
 </head>
 <body>
     <h1 th:text="${titulo}"></h1>
     <section>
         <div>
             <div>
-                <h4 th:text="${poi.nombre}"></h4>
-                <h4 th:text="${poi.tipo}"></h4>
-                <ul>
-                    <li th:each="categoria : ${poi.getCategorias()}" th:text="${categoria}"></li>
-                </ul>
-            </div>
-            <div>
-                <h4 th:text="${poi.ciudad}"></h4>
-                <h4 th:text="${poi.direccion}"></h4>
-                <h4 th:text="${poi.descripcion}"></h4>
+                <div>
+                    <h4 th:text="${poi.nombre}"></h4>
+                    <h4 th:text="${poi.descripcion}"></h4>
+                    <h4 th:text="${poi.tipo}"></h4>
+                    <ul>
+                        <li th:each="categoria : ${poi.getCategorias()}" th:text="${categoria}"></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 th:text="${poi.ciudad}"></h4>
+                    <h4 th:text="${poi.direccion}"></h4>
+                </div>
             </div>
             <div>
                 <div><h4>Ubicación:</h4> <span th:text="'Latitud: '+${poi.localizacion.y} + ' || Longitud: '+${poi.localizacion.x}"></span></div>
