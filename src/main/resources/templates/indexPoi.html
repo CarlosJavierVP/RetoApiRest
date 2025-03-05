@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <section>
+        <div>
+            <div>
+                <h2 th:text="${poi.nombre}"></h2>
+                <h2 th:text="${poi.tipo}"></h2>
+                <ul>
+                    <li th:each="categoria : ${poi.getCategorias()}"></li>
+                </ul>
+            </div>
+            <div>
+                <h2 th:text="${poi.ciudad}"></h2>
+                <h2 th:text="${poi.direccion}"></h2>
+                <h2 th:text="${poi.descripcion}"></h2>
+            </div>
+            <div>
+                <div><h2>Ubicación:</h2> <span th:text="'Latitud: '+${poi.localizacion.y} + ', Longitud: '+${poi.localizacion.x}"></span></div>
+                <iframe th:src="@{'https://www.google.com/maps?q=' +${poi.localizacion.y}+ ',' +${poi.localizacion.x} +'&output=embed'}"></iframe>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

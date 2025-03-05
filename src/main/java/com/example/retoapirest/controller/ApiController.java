@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/api")
@@ -201,6 +202,24 @@ public class ApiController {
         }
         return entidad;
     }
+
+    /*
+    @GetMapping("/punto_interes/nombre/{nombre}")
+    public ResponseEntity<PuntoInteres> findByName(@RequestParam(required = false) String nombre){
+        Pattern pattern = Pattern.compile("^"+nombre+"$", Pattern.CASE_INSENSITIVE);
+        var poi = puntoInteresRepository.findByNombre(pattern);
+
+        if (poi != null){
+            return ResponseEntity.ok(poi);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+     */
+
+
+
 
     @GetMapping("/punto_interes/ciudad/{ciudad}")
     public List<PuntoInteres> findPoiByCiudad(@PathVariable String ciudad){
