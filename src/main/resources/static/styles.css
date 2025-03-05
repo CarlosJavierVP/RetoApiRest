@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    list-style-type: disc;
+}
+
+/*
+td hace referencia al selector, nth-child al hijo de dicho selector en la (6)sexta posición que sería
+la columna de servicios donde tenemos un listado, de cara a alinear el texto a la izquierda solo ahí,
+mientras que mantenemos en el resto de los td el texto centrado
+*/
+td:nth-child(6) {
+    text-align: left;
+}
