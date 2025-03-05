@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Hoteles</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>Dirección</th>
+            <th>Categoria</th>
+            <th>Servicios</th>
+            <th>Precio Noche</th>
+        </tr>
+        <tr th:each="hotel:${hoteles}">
+            <td th:text="${hotel.id}"></td>
+            <td th:text="${hotel.nombre}"></td>
+            <td th:text="${hotel.ciudad}"></td>
+            <td th:text="${hotel.direccion}"></td>
+            <td th:text="${hotel.categoria}"></td>
+            <td>
+                <ul>
+                    <li th:each="servicio:${hotel.servicios}" th:text="${servicio}"></li>
+                </ul>
+            </td>
+            <td th:text="${hotel.precioNoche}"></td>
+        </tr>
+    </table>
+
+</body>
+</html>
