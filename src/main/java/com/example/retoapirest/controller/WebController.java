@@ -19,7 +19,6 @@ import java.util.logging.Logger;
  */
 @Controller
 @RequestMapping("/web")
-@SessionAttributes("hotel")
 public class WebController {
     /** Atributo statico para las trazas logger */
     static final Logger logger = Logger.getLogger(WebController.class.getName());
@@ -76,6 +75,7 @@ public class WebController {
      * @param model model
      * @return regresa al html del formulario con un mensaje de que el hotel se ha añadido correctamente.
      */
+
     @PostMapping("/hotel/add")
     public String addHotel(@ModelAttribute Hotel hotel, Model model) {
         hotelRepository.save(hotel);
@@ -83,5 +83,17 @@ public class WebController {
         model.addAttribute("mensaje", "Hotel añadido correctamente");
         return "formularioHotel";
     }
+
+
+    /*
+    @ResponseBody
+    @RequestMapping(value = "/hotel/add", method = RequestMethod.POST)
+    public Hotel guardarHotel(@ModelAttribute Hotel hotel, Model model){
+        hotelRepository.save(hotel);
+        logger.log(Level.INFO, "Hotel añadido: "+hotel.getNombre());
+        model.addAttribute("mensaje", "Hotel añadido correctamente");
+        return hotel;
+    }
+     */
 
 }
