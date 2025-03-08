@@ -6,11 +6,8 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ReportService {
@@ -21,7 +18,6 @@ public class ReportService {
     public ReportService(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
     }
-
 
     public void generarInformeHoteles() {
         try {
@@ -46,5 +42,7 @@ public class ReportService {
             throw new RuntimeException(e);
         }
     }
+
+
 
 }

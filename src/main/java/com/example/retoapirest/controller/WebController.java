@@ -2,9 +2,9 @@ package com.example.retoapirest.controller;
 
 
 import com.example.retoapirest.model.Hotel;
-import com.example.retoapirest.repository.EventoRepository;
 import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.PuntoInteresRepository;
+import com.example.retoapirest.services.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +23,19 @@ public class WebController {
     /** Atributo statico para las trazas logger */
     static final Logger logger = Logger.getLogger(WebController.class.getName());
 
+    private final ReportService reportService;
+
     /** Inyeccion repository de hotel */
     @Autowired
     HotelRepository hotelRepository;
     /** Inyeccion repository de poi */
     @Autowired
     PuntoInteresRepository puntoInteresRepository;
+
+    public WebController(ReportService reportService) {
+        this.reportService = reportService;
+    }
+
 
     /**
      * Metodo indexHoteles que devuelve en una plantilla html un listado de hoteles
@@ -95,5 +102,13 @@ public class WebController {
         return hotel;
     }
      */
+
+    @GetMapping("/hoteles/descargar")
+    public void descargarInforme() {
+        reportService.generarInformeHoteles();
+    }
+
+
+
 
 }

@@ -2,6 +2,12 @@
 <jasperReport name="informeMongoDB" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db07b78f-3f24-4c47-ae47-5fbdb3ceb691">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<query language="sql"><![CDATA[]]></query>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="ciudad" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="categoria" class="java.lang.Integer"/>
+	<field name="servicios" class="java.lang.String"/>
+	<field name="precioNoche" class="java.lang.Double"/>
 	<background splitType="Stretch"/>
 	<title height="80" splitType="Stretch">
 		<element kind="staticText" uuid="d3a1319e-1a0f-49dd-9b60-878fd9a69e42" mode="Opaque" x="0" y="0" width="554" height="80" backcolor="#E8E0CD" fontSize="19.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
@@ -44,7 +50,7 @@
 			</box>
 		</element>
 		<element kind="staticText" uuid="e22052a2-0f10-4b41-81fc-aaf93beee5cf" mode="Opaque" x="279" y="0" width="92" height="42" backcolor="#E0AF46" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[CATGORIA]]></text>
+			<text><![CDATA[CATEGORIA]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b3238e3-b3ba-4392-bea4-582e0ff83e46"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -73,70 +79,94 @@
 				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
+		<element kind="staticText" uuid="26b38933-78f9-4234-b19e-ddedd3b6d8aa" x="0" y="0" width="95" height="30">
+			<text><![CDATA[nombre]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2161e11c-c9c6-4f0f-b1e3-b93681340c5a"/>
+		</element>
+		<element kind="staticText" uuid="d25aa7d6-6a23-417c-b3c9-3ecd1d773063" x="95" y="0" width="92" height="30">
+			<text><![CDATA[ciudad]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="603ab68b-1c91-40a3-86fa-403e243084e5"/>
+		</element>
+		<element kind="staticText" uuid="fb901de2-d440-416b-a094-41b51419d320" x="187" y="0" width="92" height="30">
+			<text><![CDATA[direccion]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db7f56b7-7b27-44d7-9c1d-86e30e1ea9d3"/>
+		</element>
+		<element kind="staticText" uuid="261898c4-ce5f-483a-9a5b-aa3c2aec4be8" x="279" y="0" width="92" height="30">
+			<text><![CDATA[categoria]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="11ae2fc9-080e-4445-9dc3-183fcbcfc748"/>
+		</element>
+		<element kind="staticText" uuid="83a85ea6-3e9c-4913-9a65-f4343ef37291" x="371" y="0" width="92" height="30">
+			<text><![CDATA[servicios]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1daaa657-fd15-4d8a-b832-02d7458068cb"/>
+		</element>
+		<element kind="staticText" uuid="60f55abe-fb2a-4834-9a0d-b4c9cc60ddc3" x="463" y="0" width="92" height="30">
+			<text><![CDATA[precioNoche]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7197a976-5617-43d8-a2bb-f9ef08cecf56"/>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="30" splitType="Stretch">
-			<element kind="rectangle" uuid="3ba3ea23-b018-4941-b9b6-6706882e443a" mode="Opaque" x="0" y="0" width="555" height="30" backcolor="#E3936E">
+			<element kind="rectangle" uuid="229ac461-fe1d-4b5e-93e4-eb0d36284af4" x="0" y="0" width="555" height="30" backcolor="#E3936E">
 				<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
 			</element>
-			<element kind="textField" uuid="ef26def5-acbc-4985-81c4-6eac4f680360" x="0" y="0" width="95" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="e10c69b8-70c7-41a7-831c-bac0de329704" x="0" y="0" width="95" height="30" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{nombre}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf7057ba-95b3-427c-ab82-6bb89da1b6c8"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2161e11c-c9c6-4f0f-b1e3-b93681340c5a"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="f0869223-5d38-483d-9d42-ea5c69270ae1" x="95" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="48b846a9-3b6c-4b62-9b16-8e4528b9dd31" x="95" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{ciudad}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86a90a1b-af4f-47d5-814a-b5387ac8ae0d"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="603ab68b-1c91-40a3-86fa-403e243084e5"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="140b4cd0-b0ae-467e-8c9d-06697af56ac9" x="187" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="07015584-3301-4d92-8908-ee2903d13e6f" x="187" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{direccion}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="28804dcc-b6d6-4c80-b45f-31be9fc6b51b"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db7f56b7-7b27-44d7-9c1d-86e30e1ea9d3"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="a7611547-1a91-4540-b73b-102b9b2df256" x="279" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="36af3071-fa5e-47e2-a21c-581b97c22589" x="279" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{categoria}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b3238e3-b3ba-4392-bea4-582e0ff83e46"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="11ae2fc9-080e-4445-9dc3-183fcbcfc748"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="81f3021a-2f39-46af-8a0e-5d48aee7f9e6" x="371" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="750cef72-5b32-4396-8f6f-fde4a4e0ac4c" x="371" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{servicios}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="997ddb35-3d35-4f12-9dd0-5d404c393572"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1daaa657-fd15-4d8a-b832-02d7458068cb"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="96ed7d3e-35b5-47b8-a09e-32992e10da30" x="463" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="d5d47152-36f0-446a-bbee-7c63ea19b787" x="463" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{precioNoche}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c43461eb-97ac-4d0c-a332-d5f61d7feb9a"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7197a976-5617-43d8-a2bb-f9ef08cecf56"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 		</band>
@@ -152,7 +182,7 @@
 	</pageFooter>
 	<summary height="30" splitType="Stretch">
 		<element kind="textField" uuid="8d095305-841d-49c5-ad78-2a70a44af153" x="433" y="0" width="112" height="30">
-			<expression><![CDATA["N.º total de películas: "+$V{REPORT_COUNT}]]></expression>
+			<expression><![CDATA["N.º total de hoteles: "+$V{REPORT_COUNT}]]></expression>
 		</element>
 	</summary>
 </jasperReport>
