@@ -24,9 +24,9 @@
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e463370b-0da3-4ab4-9a8b-fd81693408db"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
 		<element kind="staticText" uuid="c7251adc-c12f-4318-a83c-c3ee53dec6bc" mode="Opaque" x="95" y="0" width="92" height="30" backcolor="#E0AF46" bold="true" hTextAlign="Center" vTextAlign="Middle">
@@ -34,9 +34,9 @@
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51c4a348-ca70-4334-ab48-2b7787b9ba96"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
 		<element kind="staticText" uuid="8015d108-31f3-42b3-a27b-b5a718021a38" mode="Opaque" x="187" y="0" width="92" height="30" backcolor="#E0AF46" bold="true" hTextAlign="Center" vTextAlign="Middle">
@@ -44,9 +44,9 @@
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe15af6d-7e13-4b26-ba95-ce37d79cfc72"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
 		<element kind="staticText" uuid="f1da4491-488f-4806-84a2-733e341bd36a" mode="Opaque" x="279" y="0" width="92" height="30" backcolor="#E0AF46" bold="true" hTextAlign="Center" vTextAlign="Middle">
@@ -54,9 +54,9 @@
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="49ed8d41-44ec-47c7-97f0-4ffcd4edfd6c"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
 		<element kind="staticText" uuid="f1605506-5270-447b-aa1a-6c171d2e2840" mode="Opaque" x="462" y="0" width="92" height="30" backcolor="#E0AF46" bold="true" hTextAlign="Center" vTextAlign="Middle">
@@ -64,9 +64,9 @@
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="673fa74f-02b6-428f-8640-c4789b50b3a9"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
 		<element kind="staticText" uuid="f4ff4bba-c21f-49ad-8b24-e4fb0e09cde7" mode="Opaque" x="371" y="0" width="92" height="30" backcolor="#E0AF46" bold="true" hTextAlign="Center" vTextAlign="Middle">
@@ -74,9 +74,9 @@
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c2ad14f8-66f3-45f6-be40-4eeff1eb98cc"/>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
 	</columnHeader>
@@ -90,9 +90,9 @@
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e463370b-0da3-4ab4-9a8b-fd81693408db"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 			<element kind="textField" uuid="a4caacb5-ca71-41d0-b8a6-eab383e39551" x="95" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
@@ -100,9 +100,9 @@
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51c4a348-ca70-4334-ab48-2b7787b9ba96"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 			<element kind="textField" uuid="cc2bde4e-2de0-4434-b66e-e723e2da425f" x="187" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
@@ -110,9 +110,9 @@
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe15af6d-7e13-4b26-ba95-ce37d79cfc72"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 			<element kind="textField" uuid="055abd59-3ccb-410c-b13d-2b6358e74dd8" x="279" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
@@ -120,9 +120,9 @@
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="49ed8d41-44ec-47c7-97f0-4ffcd4edfd6c"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 			<element kind="textField" uuid="2ec94608-66da-4ff7-9ed0-de1cf02b1ed9" x="462" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
@@ -130,9 +130,9 @@
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="673fa74f-02b6-428f-8640-c4789b50b3a9"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 			<element kind="textField" uuid="d732e33f-3a27-4579-bb8d-432ad6a1bbf8" x="371" y="0" width="92" height="30" hTextAlign="Center" vTextAlign="Middle">
@@ -140,9 +140,9 @@
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c2ad14f8-66f3-45f6-be40-4eeff1eb98cc"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 			</element>
 		</band>
