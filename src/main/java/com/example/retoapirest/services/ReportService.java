@@ -39,9 +39,6 @@ public class ReportService {
                     for (String s : listaServicios){
                         sb.append(s).append(", ");
                     }
-                }else {
-                    listaServicios = new ArrayList<>();
-                    listaServicios.add("N/A");
                 }
 
                 String serviciosCadena = sb.toString();
