@@ -6,6 +6,11 @@ import com.example.retoapirest.repository.HotelRepository;
 import com.example.retoapirest.repository.PuntoInteresRepository;
 import com.example.retoapirest.services.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.server.reactive.HttpHeadResponseDecorator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -104,8 +109,13 @@ public class WebController {
      */
 
     @GetMapping("/hoteles/descargar")
-    public void descargarInforme() {
-        reportService.generarInformeHoteles();
+    public ResponseEntity<ByteArrayResource> descargarInforme() {
+        byte[] informe = reportService.generarInformeHoteles();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=informeHoteles.pdf");
+
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).body(new ByteArrayResource(informe));
     }
 
 
